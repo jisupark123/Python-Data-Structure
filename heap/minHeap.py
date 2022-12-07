@@ -14,7 +14,7 @@
 1. 루트(맨앞)를 맨끝의 원소로 교체
 2. 자식이랑 비교해서 자식이 더 작으면 둘이 교체(재귀적으로 반복)(스며내리기)
 
-힙 만들기 (buildHeap) - O(n)
+힙 만들기 (heapify) - O(n)
 삽입(insert) - O(log n)
 삭제(deleteMin) - O(log n)
 접근(min) - O(1)
@@ -29,7 +29,7 @@ class MinHeap:
             self.__A = []
         else:
             self.__A = lst
-            self.buildHeap()
+            self.heapify()
 
     # 삽입
     ## O(logn)
@@ -77,7 +77,7 @@ class MinHeap:
     # 힙 만들기
     ## 마지막 층 노드 제외한 나머지에 스며내리기 적용
     ### O(n)
-    def buildHeap(self):
+    def heapify(self):
         for i in range((len(self.__A) - 2) // 2, -1, -1):
             self.__percolate_down(i)
 
